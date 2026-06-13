@@ -2696,9 +2696,18 @@ function toggleFaq(btn) {
 
 // ── STICKY ──
 const stk = document.getElementById('stk');
+
+const trigger = document.querySelector('.include-img');
+
 window.addEventListener('scroll', () => {
-  stk.style.display = window.scrollY > 2200 ? 'flex' : 'none';
-}, {passive: true});
+  const rect = trigger.getBoundingClientRect();
+
+  if (rect.top <= window.innerHeight * 0.7) {
+    stk.style.display = 'flex';
+  } else {
+    stk.style.display = 'none';
+  }
+}, { passive: true });
 </script>
 </body>
 </html>
